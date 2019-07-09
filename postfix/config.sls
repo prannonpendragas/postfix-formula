@@ -19,6 +19,7 @@ include:
     - require:
       - pkg: postfix
     - watch_in:
+      - cmd: postfix reload
       - service: postfix
     - template: jinja
 
@@ -32,6 +33,7 @@ include:
     - require:
       - pkg: postfix
     - watch_in:
+      - cmd: postfix reload
       - service: postfix
     - template: jinja
 
@@ -44,6 +46,7 @@ include:
     - require:
       - pkg: postfix
     - watch_in:
+      - cmd: postfix reload
       - service: postfix
     - template: jinja
 
@@ -56,6 +59,7 @@ include:
     - require:
       - pkg: postfix
     - watch_in:
+      - cmd: postfix reload
       - service: postfix
     - template: jinja
 {% endif %}
@@ -70,6 +74,7 @@ include:
     - require:
       - pkg: postfix
     - watch_in:
+      - cmd: postfix reload
       - service: postfix
     - template: jinja
 {% endif %}
@@ -84,6 +89,7 @@ include:
     - require:
       - pkg: postfix
     - watch_in:
+      - cmd: postfix reload
       - service: postfix
     - template: jinja
 
@@ -104,6 +110,7 @@ postfix_{{ domain }}_ssl_certificate:
     - makedirs: True
     - contents_pillar: postfix:certificates:{{ domain }}:public_cert
     - watch_in:
+       - cmd: postfix reload
        - service: postfix
 
 postfix_{{ domain }}_ssl_key:
@@ -113,6 +120,7 @@ postfix_{{ domain }}_ssl_key:
     - makedirs: True
     - contents_pillar: postfix:certificates:{{ domain }}:private_key
     - watch_in:
+       - cmd: postfix reload
        - service: postfix
 
 {% endfor %}
