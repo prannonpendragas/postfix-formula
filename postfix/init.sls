@@ -17,6 +17,10 @@ postfix:
     - watch:
       - pkg: postfix
 
+'postfix reload':
+  cmd.run:
+    - runas: root
+
 {# Used for newaliases, postalias and postconf #}
 {%- set default_database_type = salt['pillar.get']('postfix:config:default_database_type', 'hash') %}
 

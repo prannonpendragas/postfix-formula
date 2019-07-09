@@ -19,6 +19,7 @@ include:
     - require:
       - pkg: postfix
     - watch_in:
+      - cmd: postfix reload
       - service: postfix
     - template: jinja
 
@@ -70,6 +71,7 @@ include:
     - require:
       - pkg: postfix
     - watch_in:
+      - cmd: postfix reload
       - service: postfix
     - template: jinja
 {% endif %}
