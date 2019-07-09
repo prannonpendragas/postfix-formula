@@ -117,7 +117,3 @@ postfix_{{ domain }}_ssl_key:
        - service: postfix
 
 {% endfor %}
-
-'postfix reload':
-  cmd.run:
-    - runas: root
