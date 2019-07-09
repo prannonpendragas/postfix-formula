@@ -9,6 +9,9 @@ postfix:
 {%- endif %}
     - watch_in:
       - service: postfix
+  cmd.run:
+    - name: postfix reload
+    - runas: root
   service.running:
     - enable: {{ salt['pillar.get']('postfix:enable_service', True) }}
     - reload: {{ salt['pillar.get']('postfix:reload_service', True) }}
